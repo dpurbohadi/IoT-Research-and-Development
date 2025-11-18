@@ -1,4 +1,4 @@
-# IoT Based Farmer Growth Project 
+# Farmer Development Project with IoT Education 
 
 This project applies Internet of Things technology to support educational processes for farmers in managing modern agricultural environments. Sensors are placed in the greenhouse to monitor key parameters such as temperature, humidity, light intensity, and soil moisture. The collected data is sent automatically to a web based monitoring system that can be accessed via smartphone, allowing farmers to observe environmental changes in real time and gain a clearer understanding of crop requirements.
 
