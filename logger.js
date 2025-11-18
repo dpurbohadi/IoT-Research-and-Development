@@ -188,7 +188,7 @@ app.get('/datalogger/get', function (req, res) {
 app.post('/datalogger/read', function (req, res) {
     let id = req.body;
     res.setHeader('Referrer-Policy', 'no-referrer'); 
-    const sql = 'SELECT * FROM u7565784_research.logger WHERE station_id=? AND gdate BETWEEN ? AND ? AND ((MINUTE(gtime)=30) OR (MINUTE(gtime)=0)) AND SECOND(gtime)=0';
+    const sql = 'SELECT * FROM db-zzzzzz.logger WHERE station_id=? AND gdate BETWEEN ? AND ? AND ((MINUTE(gtime)=30) OR (MINUTE(gtime)=0)) AND SECOND(gtime)=0';
     db.query(sql, [id.sid, id.dateM, id.dateH], (err, result) => {
         if (err) {res.send(id);}
         res.send(result);
