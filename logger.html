@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="green.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" 
+            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" 
+            crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+        <script>
+            $("#SID").on("input",function(){localStorage.setItem("status",$(this).val())}),$(document).ready(function(){var t=localStorage.getItem("status");null!==t&&$("#SID").val(t)}),$("input[name='ghouse']").on("change",function(){localStorage.setItem("status1",$(this).val())}),$("#dateInputM").on("change",function(){var t=$(this).val();sessionStorage.setItem("status2",t)}),$(document).ready(function(){var t=sessionStorage.getItem("status2");t&&$("#dateInputM").val(t)}),$("#dateInputH").on("change",function(){var t=$(this).val();sessionStorage.setItem("status3",t)}),$(document).ready(function(){var t=sessionStorage.getItem("status3");t&&$("#dateInputH").val(t)}),$(document).ready(function(){var t=localStorage.getItem("status1");null!==t&&$("input[name='ghouse'][value='"+t+"']").prop("checked",!0)});
+        </script>
+    </head>
+    <body>
+        <div class="w3-top">
+            <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+                <a href="https://ilmuku.id/datalogger/" class="w3-bar-item w3-button"><b>IoT</b>Home</a>
+                <div class="w3-right w3-hide-small">
+                  <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+                </div>
+            </div>
+        </div>
+        <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+            <img class="w3-image" src="" alt="Architecture" width="1500" height="800">
+            <div class="w3-display-middle w3-margin-top w3-center"></div>
+        </header>
+        <hr>
+            <div class="container">
+                <p style="margin-left:2em">
+                    <label for="SID">Statsiun ID :</label>
+                    <input type="text" id="SID" name="SID" value="">
+                    <form style="margin-left:2em" id="ghouses">
+                        <input type="radio" id="melon" name="ghouse" value="melon">
+                        <label for="melon">Melon</label>
+                        <input type="radio" id="merang" name="ghouse" value="merang">
+                        <label for="merang">Jamur Merang</label><br>
+                    </form>
+            </div>
+            <p style="margin-left:2em">
+                <label for="dateInput">Mulai Tanggal :</label>
+                <input type="date" id="dateInputM">
+                <label for="dateInput">Hingga Tanggal :</label>
+                <input type="date" id="dateInputH">
+            <hr>
+                <div align='center'>
+                    <button class="w3-bar-item w3-button w3-teal" style="width:10%" id="gr" name="gr" onclick="wGraph()">Graph</button>
+                    <button class="w3-bar-item w3-button w3-teal" style="width:10%" id="dt" name="dt" onclick="wData()">Data</button>
+                    <button class="w3-bar-item w3-button w3-teal" style="width:10%" id="ds" name="ds" onclick="wSampling()">Sampling</button>
+                    <button class="w3-bar-item w3-button w3-teal" style="width:10%" id="ts" name="ts" onclick="dataTesting()">Test</button>
+                </div>
+                
+            <hr>
+            <table style="margin-left:2em" id="jsonTable">        
+            <thead>
+                <tr id="tableHeader">
+                </tr>
+            </thead>
+                <tbody id="tableBody">
+            </tbody>
+        </table>
+        <div class="w3-content w3-padding" style="max-width:1564px">
+        <div id="suChartContainer" style="height: 370px; width: 95%;"></div>
+        <div id="kuChartContainer" style="height: 370px; width: 95%;"></div>
+        <div id="ktChartContainer" style="height: 370px; width: 95%;"></div>
+        <div id="icChartContainer" style="height: 370px; width: 95%;"></div>
+        <div id="ptChartContainer" style="height: 370px; width: 95%;"></div>
+        <div class="w3-container w3-padding-32" id="contact" align="center">
+            <h4 class="w3-border-bottom w3-border-light-grey w3-padding-8">Contact</h4>
+            <p>
+                <l>Information Technology Department</l><br>
+                <l>Universitas Muhammadiyah Yogyakarta</l><br>
+                <l>Jl. Brawijaya Tamantirto Bantul DI Yogyakarta - 55183</l><br>
+                <l>email: purbohadi@yahoo.com</l>
+            </p>
+        </div>
+        </div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.stock.min.js"></script>
+        <script src="scratch.js"></script>
+        <script>
+            var ttoday = new Date();
+            var year = ttoday.getFullYear();
+            var month = String(ttoday.getMonth() + 1).padStart(2, '0'); 
+            var day = String(ttoday.getDate()).padStart(2, '0');
+            var formattedDate = `${year}-${month}-${day}`;
+            document.getElementById('dateInputM').value = formattedDate;
+            document.getElementById('dateInputH').value = formattedDate;
+            $("#gr").on("click", function() {
+                jQuery("body").load(window.location.href);
+            });
+            $("#dt").on("click", function() {
+                jQuery("body").load(window.location.href);
+            });
+            $("#ds").on("click", function() {
+                jQuery("body").load(window.location.href);
+            });
+            async function wGraph(){
+                selectGreenHouse();
+                graph();
+            }
+            function wData(){
+                readData();
+            }
+        </script>
+    </body>
+</html>
