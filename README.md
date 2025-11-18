@@ -1,3 +1,5 @@
+# Simple IoT Project
+
 This project applies Internet of Things technology to support educational processes for farmers in managing modern agricultural environments. Sensors are placed in the greenhouse to monitor key parameters such as temperature, humidity, light intensity, and soil moisture. The collected data is sent automatically to a web based monitoring system that can be accessed via smartphone, allowing farmers to observe environmental changes in real time and gain a clearer understanding of crop requirements.
 
 The primary goal of this project is not limited to automation or easier control. It aims to build new habits among traditional farmers. Many farmers tend to use technology only at the beginning and then return to conventional practices. Through an educational approach technology is introduced as a tool that supports continuous learning. Clear visualisation of environmental data helps farmers see the relationship between their actions and the outcomes. The monitoring system provides opportunities for ongoing evaluation, which can gradually shape data driven management habits.
