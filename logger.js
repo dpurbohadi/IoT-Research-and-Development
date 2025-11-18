@@ -177,7 +177,7 @@ app.post('/datalogger/current', (req, res) => {
 
 app.get('/datalogger/get', function (req, res) {
     res.setHeader('Referrer-Policy', 'no-referrer'); 
-    const sql = 'SELECT * FROM u7565784_research.logger';
+    const sql = 'SELECT * FROM db-zzzzzz.logger';
     db.query(sql, (err, result) => {
         if (err) {res.send(err);}
         res.send(result);
