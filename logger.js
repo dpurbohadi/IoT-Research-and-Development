@@ -11,9 +11,9 @@ var mysql = require('mysql');
 
 var db = mysql.createConnection ({
     host: 'localhost',
-    user: 'u7565784_research',
-    password: 'Ti-69696901',
-    database: 'u7565784_research'
+    user: 'u-xxxxxx',
+    password: 'p-yyyyyy',
+    database: 'db-zzzzzz'
 });
 
 app.use(session({
